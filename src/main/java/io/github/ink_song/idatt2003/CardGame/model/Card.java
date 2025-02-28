@@ -15,6 +15,6 @@ public class Card {
   }
 
   public String getCardInfo(){
-    return "%c%i" + suite + value;
+    return "" + suite + value;
   }
 }
