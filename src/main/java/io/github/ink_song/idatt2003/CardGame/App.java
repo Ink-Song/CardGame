@@ -1,4 +1,5 @@
 package io.github.ink_song.idatt2003.CardGame;
+import io.github.ink_song.idatt2003.CardGame.controller.GameController;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,6 +16,10 @@ import javafx.*;
 
 public class App extends Application {
 
+  private GameController controller;
+  private Label dealtHandDisplay;
+  private Label informationContentText;
+
   public void start(Stage primaryStage) {
     Scene mainScene = createMainScene();
     String css = this.getClass().getResource("/styling.css").toExternalForm();
@@ -28,26 +33,17 @@ public class App extends Application {
   }
 
   private Scene createMainScene(){
-    // Provides a Base Layout to our window
     HBox layout = new HBox();
-    // Define Regions to provide structure
     Region leftRegion = new Region();
     Region rightRegion = new Region();
-
-//    HBox.setHgrow(leftRegion, Priority.ALWAYS);
-//    HBox.setHgrow(rightRegion, Priority.SOMETIMES);
 
 
     // Defining the game window
     VBox leftContent = new VBox(20);
-//    Region topRegion = new Region();
-//    Region bottomRegion = new Region();
-//    VBox.setVgrow(topRegion, Priority.ALWAYS);
-//    VBox.setVgrow(bottomRegion, Priority.SOMETIMES);
     // Making the Game window Pane
     StackPane gameWindow = new StackPane();
     gameWindow.setPrefSize(500,300);
-    Label dealtHandDisplay = new Label("Default Text");
+    dealtHandDisplay = new Label("Default Text");
     gameWindow.getChildren().add(dealtHandDisplay);
     gameWindow.setPadding(new Insets(10));
 
@@ -74,7 +70,7 @@ public class App extends Application {
     Label informationTitle = new Label("Information");
     //Build our information window
     VBox informationWindow = new VBox();
-    Label informationContentText = new Label("Information Text");
+    informationContentText = new Label("Information Text");
     informationWindow.getChildren().add(informationContentText);
 
     informationWindow.setPrefSize(300,200);
@@ -82,6 +78,7 @@ public class App extends Application {
     informationWindow.setId("informationWindow");
 
     Button analysisButton = new Button("Analyze Hand");
+    analysisButton.setOnAction(event -> {});
     Label welcomeText = new Label("Welcome");
 
     rightContent.getChildren().addAll(informationTitle, informationWindow, analysisButton, welcomeText);
@@ -94,6 +91,18 @@ public class App extends Application {
     layout.setSpacing(10);
     layout.setPadding(new Insets(10,10,10,10));
     return new Scene(layout,800,600);
+  }
+  private void dealHand(){
+
+  }
+  private void analysis(){
+
+  }
+  private void updateCardWindow(){
+
+  }
+  private void updateAnalysisWindow(){
+
   }
 
   public static void main(String[] args) {

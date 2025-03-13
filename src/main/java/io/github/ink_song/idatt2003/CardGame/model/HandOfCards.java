@@ -3,11 +3,13 @@ package io.github.ink_song.idatt2003.CardGame.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class HandOfCards {
-  List<Card> cards;
+  private List<Card> cards;
+  private char[] suite = {'H','D','S','C'};
 
   public HandOfCards(Card[] cards) {
     for (Card card : cards) {
@@ -16,6 +18,9 @@ public class HandOfCards {
   }
   public List<Card> getCards() {
     return cards;
+  }
+  public void setCards(List<Card> cards) {
+    this.cards = cards;
   }
 
   public void addCardToHand(Card card) {
@@ -41,18 +46,23 @@ public class HandOfCards {
 //    return returnedCards;
 //  }
 
-  public List<Card> findCardsByType(char type){
-    return cards.stream().filter(card -> card.getSuite() == type).collect(Collectors.toList());
+  public Card[] findCardsByType(char type){
+    return cards.stream().filter(card -> card.getSuite() == type).toArray(Card[]::new);
   }
   public int countCardValue(){
     return cards.stream().mapToInt(Card::getValue).sum();
   }
+  public boolean hasQueenOfSpades(){
+    Optional<Card> foundCard = cards.stream().filter(card -> card.getSuite() == 'S' && card.getValue() == 12).findFirst();
+    return foundCard.isPresent();
+  }
 
-//  public boolean hasCardOf(char type, int value){
-//
-//  }
+  public boolean hasFlush(){
+    char suite = cards.getFirst().getSuite();
+    Card[] foundCards = findCardsByType(suite);
+    return foundCards.length == cards.size();
+  }
 
-  // function for checking for a flush (or any specific combination perhaps?)
 
 
 }
