@@ -59,6 +59,7 @@ public class App extends Application {
     // Making the "New Hand" button
     StackPane buttonPane = new StackPane();
     Button button = new Button("New Hand");
+    button.setOnAction(event -> {dealHand();});
     buttonPane.getChildren().add(button);
 
     // Building the Left Content Box
@@ -78,7 +79,7 @@ public class App extends Application {
     informationWindow.setId("informationWindow");
 
     Button analysisButton = new Button("Analyze Hand");
-    analysisButton.setOnAction(event -> {});
+    analysisButton.setOnAction(event -> {analysis();});
     Label welcomeText = new Label("Welcome");
 
     rightContent.getChildren().addAll(informationTitle, informationWindow, analysisButton, welcomeText);
@@ -93,16 +94,11 @@ public class App extends Application {
     return new Scene(layout,800,600);
   }
   private void dealHand(){
-
+    controller.dealCards();
+    dealtHandDisplay.setText(controller.getHandOfCardsAsString());
   }
   private void analysis(){
-
-  }
-  private void updateCardWindow(){
-
-  }
-  private void updateAnalysisWindow(){
-
+    informationContentText.setText(controller.analyzeCards());
   }
 
   public static void main(String[] args) {
@@ -112,6 +108,7 @@ public class App extends Application {
   @Override
   public void init() throws Exception {
     super.init();
+    this.controller = new GameController();
   }
 
   @Override

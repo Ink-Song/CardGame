@@ -7,8 +7,11 @@ import java.util.Arrays;
 public class GameController {
   private DeckOfCards deckOfCards;
   private HandOfCards handOfCards;
-  private int DEFAULT_HAND_SIZE;
+  private int DEFAULT_HAND_SIZE = 5;
 
+  public String getHandOfCardsAsString(){
+    return Arrays.toString(Arrays.stream(deckOfCards.getDeck()).toArray());
+  }
   public GameController() {
     deckOfCards = new DeckOfCards();
   }

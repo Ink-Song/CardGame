@@ -12,6 +12,7 @@ public class HandOfCards {
   private char[] suite = {'H','D','S','C'};
 
   public HandOfCards(Card[] cards) {
+    this.cards = new ArrayList<>();
     for (Card card : cards) {
       addCardToHand(card);
     }
