@@ -17,4 +17,8 @@ public class Card {
   public String getCardInfo(){
     return "" + suite + value;
   }
+  @Override
+  public String toString() {
+    return "" + suite + value;
+  }
 }

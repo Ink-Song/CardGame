@@ -10,7 +10,7 @@ public class GameController {
   private int DEFAULT_HAND_SIZE = 5;
 
   public String getHandOfCardsAsString(){
-    return Arrays.toString(Arrays.stream(deckOfCards.getDeck()).toArray());
+    return Arrays.toString(handOfCards.getCardsAsArray());
   }
   public GameController() {
     deckOfCards = new DeckOfCards();

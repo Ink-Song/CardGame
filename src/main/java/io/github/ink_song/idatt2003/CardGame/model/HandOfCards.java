@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 
 public class HandOfCards {
   private List<Card> cards;
-  private char[] suite = {'H','D','S','C'};
 
   public HandOfCards(Card[] cards) {
     this.cards = new ArrayList<>();
@@ -19,6 +18,9 @@ public class HandOfCards {
   }
   public List<Card> getCards() {
     return cards;
+  }
+  public Card[] getCardsAsArray() {
+    return cards.toArray(new Card[0]);
   }
   public void setCards(List<Card> cards) {
     this.cards = cards;
