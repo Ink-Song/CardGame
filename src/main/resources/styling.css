@@ -1,0 +1,42 @@
+/* styles.css */
+.root {
+    -fx-background-color: #f0f0f0; /* Light gray background */
+    -fx-font-family: Calibri;
+}
+
+.button {
+    /*-fx-background-color: #3498db; !* Blue button *!*/
+    /*-fx-text-fill: white;*/
+    /*-fx-font-size: 14px;*/
+    /*-fx-border-color: #2980b9;*/
+    /*-fx-border-width: 2px;*/
+    /*-fx-border-radius: 5px;*/
+    /*-fx-background-radius: 5px;*/
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2c3e50; /* Dark gray text */
+}
+
+.hbox {
+    -fx-spacing: 15px; /* Space between elements */
+    -fx-padding: 10px;
+}
+.vbox{
+    -fx-background-color: #202020;
+}
+#gameWindow {
+    -fx-background-insets: 0;
+    -fx-border-width: 2;
+    -fx-border-color: #202020;
+    -fx-background-color: #FFFFFF;
+}
+#informationWindow {
+    -fx-background-insets: 0;
+    -fx-border-width: 2;
+    -fx-border-color: #202020;
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 10;
+    -fx-font-family: "JetBrains Mono";
+}
