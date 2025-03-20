@@ -61,9 +61,13 @@ public class HandOfCards {
   }
 
   public boolean hasFlush(){
-    char suite = cards.getFirst().getSuite();
-    Card[] foundCards = findCardsByType(suite);
-    return foundCards.length == cards.size();
+    Optional<Character> suite = cards.stream().findFirst().map(Card::getSuite);
+    if(suite.isPresent()){
+      Card[] foundCards = findCardsByType(suite.get());
+      return foundCards.length == cards.size();
+    } else{
+      return false;
+    }
   }
 
 

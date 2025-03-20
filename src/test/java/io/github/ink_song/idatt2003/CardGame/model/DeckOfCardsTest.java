@@ -1,6 +1,7 @@
 package io.github.ink_song.idatt2003.CardGame.model;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 class DeckOfCardsTest {
   DeckOfCards deck = new DeckOfCards();
@@ -11,5 +12,6 @@ class DeckOfCardsTest {
     for (Card card : cards) {
       System.out.println(card.getCardInfo());
     }
+    assertEquals(10, cards.length);
   }
 }

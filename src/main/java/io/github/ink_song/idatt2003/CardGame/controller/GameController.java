@@ -3,6 +3,7 @@ package io.github.ink_song.idatt2003.CardGame.controller;
 import io.github.ink_song.idatt2003.CardGame.model.*;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public class GameController {
   private DeckOfCards deckOfCards;
@@ -31,12 +32,11 @@ public class GameController {
       builder.append("Queen of Spades: " + handOfCards.hasQueenOfSpades());
       builder.append("\n");
       if(handOfCards.hasFlush()){
-        char suite = handOfCards.getCards().getFirst().getSuite();
+        Optional<Character> suite = handOfCards.getCards().stream().findFirst().map(Card::getSuite);
         builder.append("Flush: " + suite);
       } else{
         builder.append("Flush: None!");
       }
-
     }
     return builder.toString();
   }
