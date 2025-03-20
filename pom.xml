@@ -8,11 +8,11 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <!-- Use Java 21 (Java 22 is still in early access) -->
-    <java.version>21</java.version>
+    <!-- Use Java 22 (Java 22 is still in early access) -->
+    <java.version>22</java.version>
 
     <!-- JavaFX Version -->
-    <javafx.version>21</javafx.version>
+    <javafx.version>22</javafx.version>
   </properties>
 
   <dependencies>
@@ -40,7 +40,7 @@
       </resource>
     </resources>
     <plugins>
-      <!-- Compiler Plugin for Java 21 -->
+      <!-- Compiler Plugin for Java 22 -->
       <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
@@ -69,6 +69,31 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.11.2</version>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>io.github.ink_song.idatt2003.CardGame.App</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 
